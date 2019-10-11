@@ -25,23 +25,34 @@ namespace Ifsz.Webapi.Server.Controllers
         public IEnumerable<Product> Get()
         {
             _logger.LogInformation("Client has been sent a new get Request!");
-            /* var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Product
-            {
-                Id = index,
-                Name = "Vacuum Cleaner",
-                Price = 23000,
-                Description = "New and fully automated vaccuum cleaner from Samsung.",
-                Active = true
-            })
-            .ToArray(); */
-
             using(var db = new LiteDatabase(@".\DB.db"))
             {
                 var col = db.GetCollection<Product>("products");
                 return col.FindAll();
             }
+        }
 
+        /**
+         * Update an existing product.
+         */
+        [HttpPut]
+        [Route("{id}")]
+        public JsonResult Put([FromBody]Product product)
+        {
+            using(var db = new LiteDatabase(@".\DB.db"))
+            {
+                var col = db.GetCollection<Product>("products");
+                Product selectedProduct = col.FindById(product.Id);
+                selectedProduct.Name = product.Name;
+                selectedProduct.Description = product.Description;
+                selectedProduct.Price = product.Price;
+                selectedProduct.Active = product.Active;
+
+                col.Update(selectedProduct);
+            }
+
+            var message = new { success = true, message = "Product updated." };
+            return new JsonResult(message);
         }
 
         /**
@@ -56,15 +67,13 @@ namespace Ifsz.Webapi.Server.Controllers
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
-                Active = true,
+                Active = product.Active,
             };
 
             using(var db = new LiteDatabase(@".\DB.db"))
             {
                 var col = db.GetCollection<Product>("products");
                 col.Insert(newProduct);
-
-                _logger.LogInformation("Client has been sent a new POST Request! New ID: " + newProduct.ToString());
             }
 
             var result = new JsonResult(newProduct);

@@ -22,11 +22,14 @@ export class Base {
     }
 
     onCreate(row: any): void {
-        row.price = parseInt(row.price);
-        this.mainService.create(row);
+        let validated = new this.mainClass().fromObject(row);
+        validated.validate();
+        this.mainService.create(validated);
     }
 
     onUpdate(row: any): void {
-        // 
+        let validated = new this.mainClass().fromObject(row);
+        validated.validate();
+        this.mainService.update(row.id, validated); 
     }
 }

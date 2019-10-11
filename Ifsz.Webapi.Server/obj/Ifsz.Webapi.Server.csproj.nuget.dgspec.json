@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj": {}
+    "D:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj": {}
   },
   "projects": {
-    "Z:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj": {
+    "D:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj",
+        "projectUniqueName": "D:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj",
         "projectName": "Ifsz.Webapi.Server",
-        "projectPath": "Z:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj",
-        "packagesPath": "C:\\Users\\Gep6\\.nuget\\packages\\",
-        "outputPath": "Z:\\tr360-ifsz\\Ifsz.Webapi.Server\\obj\\",
+        "projectPath": "D:\\tr360-ifsz\\Ifsz.Webapi.Server\\Ifsz.Webapi.Server.csproj",
+        "packagesPath": "C:\\Users\\Gep 3\\.nuget\\packages\\",
+        "outputPath": "D:\\tr360-ifsz\\Ifsz.Webapi.Server\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Gep6\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Gep 3\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

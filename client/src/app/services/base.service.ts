@@ -34,7 +34,7 @@ export class BaseService {
   }
 
   update(id: string|number, body: any): void {
-    this.http.post( this.getUrl(id), body ).forEach(
+    this.http.put( this.getUrl(id), body ).forEach(
       response => console.log("Response: ", response)
     );
   }

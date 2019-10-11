@@ -1,11 +1,14 @@
-export class BaseModel {
+export abstract class BaseModel {
 
-
-    constructor(options: any = {}) {
+    fromObject(options): any {
+        console.log("options: ", options);
         for (let k in options) {
-            if (this[k]) {
-                this[k] = options[k];
-            }
+            this[k] = options[k];
         }
+        return this;
+    }
+
+    validate(): void {
+        // 
     }
 }
