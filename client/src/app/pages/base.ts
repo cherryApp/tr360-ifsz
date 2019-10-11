@@ -12,11 +12,14 @@ export class Base {
         protected mainClass: any
     ) { }
 
-    getObjectKeys(): { key: string, title: string }[] {
+    getObjectKeys(keyName: string, titleName: string): any[] {
         let mClass = new this.mainClass();
         let columns = [];
         for (let k in mClass) {
-            columns.push({ key: k, title: k });
+            let row = {};
+            row[keyName || 'key'] = k;
+            row[titleName || 'title'] = k;
+            columns.push(row);
         }
         return columns;
     }

@@ -1,1 +1,11 @@
-<p>product-ag works!</p>
+<div class="row">
+    <div class="col-10 offset-1">
+        <ag-grid-angular 
+            style="width: 100%; height: 800px;" 
+            class="ag-theme-balham" 
+            [rowData]="list | async" 
+            [columnDefs]="columnDefs" 
+            >
+        </ag-grid-angular>
+    </div>
+</div>
