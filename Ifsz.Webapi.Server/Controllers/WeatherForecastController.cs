@@ -30,6 +30,7 @@ namespace Ifsz.Webapi.Server.Controllers
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
+                Id = index,
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
@@ -41,13 +42,13 @@ namespace Ifsz.Webapi.Server.Controllers
         public JsonResult Post([FromBody]WeatherForecast weather)
         {
             _logger.LogInformation("Client has been sent a new get Request! Summary: " + weather.Summary);
-            var rng = new Random();
+            /* var rng = new Random();
             var forecast = new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(1),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
-            };
+            }; */
             var result = new JsonResult(weather);
             return result;
         }
