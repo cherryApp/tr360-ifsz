@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
+using Ifsz.Webapi.Server.Models;
+
 namespace Ifsz.Webapi.Server.Controllers
 {
     [ApiController]

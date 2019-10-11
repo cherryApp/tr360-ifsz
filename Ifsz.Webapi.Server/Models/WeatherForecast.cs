@@ -1,6 +1,6 @@
 using System;
 
-namespace Ifsz.Webapi.Server
+namespace Ifsz.Webapi.Server.Models
 {
     public class WeatherForecast
     {
