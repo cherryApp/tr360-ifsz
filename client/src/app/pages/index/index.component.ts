@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-index',
@@ -8,14 +7,9 @@ import { WeatherService } from 'src/app/services/weather.service';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(
-    private weatherService: WeatherService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.weatherService.read().subscribe(
-      weatherList => console.log(weatherList)
-    );
   }
 
 }
