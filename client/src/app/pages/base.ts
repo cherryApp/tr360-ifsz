@@ -5,13 +5,14 @@ import { BaseService } from '../services/base.service';
 export class Base {
 
     list: Observable<any> = this.mainService.read();
+    columns: {key: string, title: string}[] = this.getObjectKeys();
 
     constructor(
         protected mainService: BaseService,
         protected mainClass: any
     ) { }
 
-    getObjectKeys(object): { key: string, title: string }[] {
+    getObjectKeys(): { key: string, title: string }[] {
         let mClass = new this.mainClass();
         let columns = [];
         for (let k in mClass) {
@@ -20,7 +21,12 @@ export class Base {
         return columns;
     }
 
-    onCreate(row: Weather): void {
+    onCreate(row: any): void {
+        row.price = parseInt(row.price);
         this.mainService.create(row);
+    }
+
+    onUpdate(row: any): void {
+        // 
     }
 }

@@ -11,6 +11,9 @@ import { Base } from '../base';
 })
 export class ProductComponent extends Base implements OnInit {
 
+  newEntity: Product = new Product();
+  name: string = "";
+
   constructor(
     productService: ProductService
   ) { 

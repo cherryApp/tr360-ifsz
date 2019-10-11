@@ -3,20 +3,32 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
-                    <th *ngFor="let col of getObjectKeys()">
+                    <th *ngFor="let col of columns">
                         {{ col.title }}
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td *ngFor="let col of columns">
+                        <input class="form-control input-sm" [(ngModel)]="newEntity[col.key]">
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button (click)="onCreate(newEntity)" class="btn btn-sm btn-success">
+                                    <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 <tr *ngFor="let item of list | async">
-                    <td *ngFor="let col of getObjectKeys()">
+                    <td *ngFor="let col of columns">
                         {{ item[col.key] }}
                     </td>
                     <td>
                         <div class="btn-group">
-                            <button (click)="onCreate(item)" class="btn btn-info btn-sm">
+                            <button (click)="onUpdate(item)" class="btn btn-info btn-sm">
                                     <i class="fa fa-refresh"></i>
                                 </button>
                         </div>
