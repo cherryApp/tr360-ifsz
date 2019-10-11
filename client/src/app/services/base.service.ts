@@ -27,4 +27,16 @@ export class BaseService {
     return this.http.get(url);
   }
 
+  create(body: any): void {
+    this.http.post( this.getUrl(), body ).forEach(
+      response => console.log("Response: ", response)
+    );
+  }
+
+  update(id: string|number, body: any): void {
+    this.http.post( this.getUrl(id), body ).forEach(
+      response => console.log("Response: ", response)
+    );
+  }
+
 }

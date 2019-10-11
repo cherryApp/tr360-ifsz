@@ -31,4 +31,8 @@ export class WeatherComponent implements OnInit {
     );
   }
 
+  onCreate(row: Weather): void {
+    this.weatherService.create(row);
+  }
+
 }

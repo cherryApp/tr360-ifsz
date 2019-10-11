@@ -36,5 +36,20 @@ namespace Ifsz.Webapi.Server.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public JsonResult Post([FromBody]WeatherForecast weather)
+        {
+            _logger.LogInformation("Client has been sent a new get Request! Summary: " + weather.Summary);
+            var rng = new Random();
+            var forecast = new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(1),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            };
+            var result = new JsonResult(weather);
+            return result;
+        }
     }
 }
