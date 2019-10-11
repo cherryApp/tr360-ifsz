@@ -26,6 +26,7 @@ namespace Ifsz.Webapi.Server.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("Client has been sent a new get Request!");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
