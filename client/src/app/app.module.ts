@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './pages/index/index.component';
 import { NavComponent } from './common/nav/nav.component';
 import { WeatherComponent } from './pages/weather/weather.component';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     NavComponent,
-    WeatherComponent
+    WeatherComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
