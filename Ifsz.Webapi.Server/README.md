@@ -5,7 +5,8 @@
 
 ## Installs
 `dotnet add package LiteDB`  
-[LiteDB Readme](https://github.com/mbdavid/LiteDB/wiki/Getting-Started)
+[LiteDB Readme](https://github.com/mbdavid/LiteDB/wiki/Getting-Started)  
+`dotnet add package JWT`  
 
 ## Run
 `dotnet watch run`

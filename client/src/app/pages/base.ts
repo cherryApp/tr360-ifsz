@@ -12,7 +12,7 @@ export class Base {
         protected mainClass: any
     ) { }
 
-    getObjectKeys(keyName: string, titleName: string): any[] {
+    getObjectKeys(keyName?: string, titleName?: string): any[] {
         let mClass = new this.mainClass();
         let columns = [];
         for (let k in mClass) {
