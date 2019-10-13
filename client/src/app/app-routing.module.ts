@@ -4,6 +4,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { WeatherComponent } from './pages/weather/weather.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ProductAgComponent } from './pages/product-ag/product-ag.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 
 const routes: Routes = [
@@ -17,11 +19,16 @@ const routes: Routes = [
   }, 
   {
     path: "product",
-    component: ProductComponent
+    component: ProductComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "product-ag",
     component: ProductAgComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
   },
   {
     path: "**",
