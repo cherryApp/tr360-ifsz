@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using LiteDB;
 using JWT.Algorithms;
 using JWT.Builder;
+using Newtonsoft.Json;
 
 using Ifsz.Webapi.Server.Models;
 
@@ -17,7 +18,6 @@ namespace Ifsz.Webapi.Server.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ILogger<ProductController> _logger;
-        private const string secret = "GQDstcKsx0NHjPOuXOYg5MbeJ1XT0uFiwDVvVBrk";
 
         public ProductController(ILogger<ProductController> logger)
         {
@@ -28,21 +28,6 @@ namespace Ifsz.Webapi.Server.Controllers
         public IEnumerable<Product> Get()
         {
             _logger.LogInformation("Client has been sent a new get Request!");
-
-            var token = new JwtBuilder()
-                .WithAlgorithm(new HMACSHA256Algorithm())
-                .WithSecret(secret)
-                .AddClaim("exp", DateTimeOffset.UtcNow.AddHours(4).ToUnixTimeSeconds())
-                .AddClaim("claim2", "most secret data")
-                .Build();
-
-            /* var payload = new JwtBuilder()
-                .WithSecret(secret)
-                .MustVerifySignature()
-                .Decode<IDictionary<object>>(token); 
-
-            _logger.LogInformation(payload["claim2"]); */
-
 
             using (var db = new LiteDatabase(@".\DB.db"))
             {
@@ -100,3 +85,23 @@ namespace Ifsz.Webapi.Server.Controllers
         }
     }
 }
+
+/*
+var token = new JwtBuilder()
+                .WithAlgorithm(new HMACSHA256Algorithm())
+                .WithSecret(secret)
+                .AddClaim("exp", DateTimeOffset.UtcNow.AddHours(4).ToUnixTimeSeconds())
+                .AddClaim("claim2", "most secret data")
+                .Build();
+
+            var payload = new JwtBuilder()
+                .WithSecret(secret)
+                .MustVerifySignature()
+                .Decode<IDictionary<string, object>>(token);
+
+            var serialized = JsonConvert.SerializeObject(payload);
+            _logger.LogInformation(serialized);
+
+
+
+ */
