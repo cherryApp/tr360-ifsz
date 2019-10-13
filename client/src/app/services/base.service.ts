@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BaseService {
 
-  apiEndpoint: string = "https://localhost:5001";
+  apiEndpoint: string = "http://localhost:4000";
 
   constructor(
     protected http: HttpClient,
